@@ -25,6 +25,16 @@ define Device/friendlyarm_nanopi-r4s
 endef
 TARGET_DEVICES += friendlyarm_nanopi-r4s
 
+define Device/xunlong_orangepi-r1-plus
+  DEVICE_VENDOR := Xunlong
+  DEVICE_MODEL := OrangePi R1 Plus
+  SOC := rk3328
+  UBOOT_DEVICE_NAME := orangepi-r1-plus-rk3328
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script orangepi-r1-plus | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-usb-net-rtl8152
+endef
+TARGET_DEVICES += xunlong_orangepi-r1-plus
+
 define Device/pine64_rockpro64
   DEVICE_VENDOR := Pine64
   DEVICE_MODEL := RockPro64
